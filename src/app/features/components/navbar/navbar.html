@@ -1,7 +1,7 @@
 <div class="drawer">
   <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
   <div class="drawer-content flex flex-col">
-    <div class="navbar bg-base-300 w-full">
+    <div class="navbar bg-pink-400 w-full shadow-lg">
       <div class="flex-none lg:hidden">
         <label for="my-drawer-2" aria-label="open sidebar" class="btn btn-square btn-ghost">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -11,14 +11,15 @@
           </svg>
         </label>
       </div>
-      <div class="mx-2 flex-1 px-2 font-bold">DAISIUI</div>
+      <div class="mx-2 flex-1 px-2 font-bold text-white">Pokemons</div>
       <div class="hidden flex-none lg:block">
         <ul class="menu menu-horizontal">
-          <li><a routerLink="home">Home</a></li>
+          <li>
+            <a routerLink="home" class="text-white hover:bg-pink-500">Home</a></li>
     
           <li>
-  <a routerLink="/pages" routerLinkActive="bg-primary text-primary-content">Estilos</a>
-</li>
+            <a routerLink="login" class="text-white hover:bg-pink-500">Salir de cuenta</a>
+          </li>
         </ul>
       </div>
     </div>

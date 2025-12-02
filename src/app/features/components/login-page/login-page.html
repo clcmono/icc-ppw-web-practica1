@@ -4,41 +4,56 @@
     (ngSubmit)="onSubmit()"
     class="bg-base-100 p-8 rounded-2xl shadow-xl w-full max-w-md"
   >
-    <h2 class="text-center text-2xl font-semibold mb-6">Formulario</h2>
+    <h2 class="text-center text-2xl font-semibold mb-6">Login</h2>
 
-    <!-- Nombre -->
-    <div class="mb-4">
-      <label class="block mb-1 font-medium">Nombre</label>
-      <input
-        formControlName="nombre"
-        class="input input-bordered w-full rounded-xl"
-        placeholder="Ingrese su nombre"
-      />
-      @if(formUtils.isValidField(myForm, 'nombre')){
-        <p class="text-error text-sm mt-1">
-          {{ formUtils.getFieldError(myForm, 'nombre') }}
-        </p>
-      }
-    </div>
+    <!-- Mensaje de error de login -->
+    @if (loginError()) {
+      <div class="alert alert-error mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span>{{ loginError() }}</span>
+      </div>
+    }
 
     <!-- Correo -->
     <div class="mb-4">
       <label class="block mb-1 font-medium">Correo</label>
       <input
         formControlName="correo"
+        type="email"
         class="input input-bordered w-full rounded-xl"
         placeholder="example@mail.com"
       />
-      @if(formUtils.isValidField(myForm, 'correo')){
-        <p class="text-error text-sm mt-1">
-          {{ formUtils.getFieldError(myForm, 'correo') }}
-        </p>
-      }
+      <p *ngIf="formUtils.isValidField(myForm, 'correo')" class="text-error text-sm mt-1">
+        {{ formUtils.getFieldError(myForm, 'correo') }}
+      </p>
+    </div>
+
+    <!-- Contraseña -->
+    <div class="mb-4">
+      <label class="block mb-1 font-medium">Contraseña</label>
+      <input
+        formControlName="password"
+        type="password"
+        class="input input-bordered w-full rounded-xl"
+        placeholder="Ingrese su contraseña"
+      />
+      <p *ngIf="formUtils.isValidField(myForm, 'password')" class="text-error text-sm mt-1">
+        {{ formUtils.getFieldError(myForm, 'password') }}
+      </p>
     </div>
 
     <!-- Botón -->
     <button class="btn btn-primary w-full rounded-xl mt-4" type="submit">
-      Guardar
+      Ingresar
     </button>
+
+    <!-- Ayuda -->
+    <div class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+      <p class="text-sm text-blue-800 font-semibold">Credenciales de prueba:</p>
+      <p class="text-sm text-blue-700">Correo: <span class="font-mono">claudia@gmail.com</span></p>
+      <p class="text-sm text-blue-700">Contraseña: <span class="font-mono">12345</span></p>
+    </div>
   </form>
 </div>
